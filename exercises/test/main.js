@@ -1,36 +1,49 @@
-
-// const reverseInt = (n) => {
-//     const revered = n.toString().split('').reverse().join('');
-//     return parseInt(revered) * Math.sign(n);
-// }
-
-// const reverseInt = (n)=> {
-// 	const sign = Math.sign(n);
-// 	let result = 0;
-// 	p = Math.abs(n);
-
-//     const getDigit = (p) => {
-//         if(p<10) {
-//             result = result*10 + (p%10);
-//             return;
-//         }
-//         result = result*10 + (p%10);
-//         return getDigit(parseInt(p/10));
-//     }
-//     getDigit(p);
-//     return result * sign
-// }
-
-const reverseInt = (n) => {
-    if(n === 0) return 0;
-    const sign = Math.sign(n) > 0;
-    p = Math.abs(n)
-    const reversedP = Number(p.toString().split('').reverse().join(''))
+// const maxChar = (str) => {
+//     const charMap = {}
+//     let max = 0;
+//     let maxChar = '';
     
-    return sign? reversedP : -1 * reversedP
-    // return sign? reversedP : 0-reversedP
-}
+//     for(let char of str){
+//         charMap[char] = charMap[char] +1 || 1;
+//     }
+//     for(let char in charMap){
+//         if(charMap[char] > max){
+//             max = charMap[char];
+//             maxChar = char;
+//         }
+//     }
+//     return maxChar || 'h';
+// }
+const maxChar = (str) => {
+    const charMap = {}
+    let max = 0;
+    let maxChar = '';
+    
+    for(let char of str){
+        charMap[char] = charMap[char] +1 || 1;
+        if(charMap[char] > max){
+            max = charMap[char];
+            maxChar = char;
+        }
 
+    }
+    return maxChar;
+}
+// const maxChar = (str) => {
+//     const charMap = {}
+//     let max = 0;
+//     let maxChar = '';
+    
+//     for(let char of str){
+//         charMap[char] = charMap[char] +1 || 1;
+//         if(charMap[char] > max){
+//             max = charMap[char];
+//             maxChar = char;
+//         }
+
+//     }
+//     return maxChar;
+// }
 
 const getTime = () => {
     return  new Date().getTime();
@@ -44,5 +57,4 @@ const run = (times, callBack, arg) => {
     console.log(`diff ${end-start}`)
 }
 
-run(1000000, reverseInt, 1234567)
-
+run(1000000, maxChar, 'abcdefghijklmnopqrstuvwxyz')

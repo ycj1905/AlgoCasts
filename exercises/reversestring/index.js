@@ -9,9 +9,9 @@
 
 
 // # 1
-const reverse = (str) => {
-    return str.split('').reverse().join('')
-}
+// const reverse = (str) => {
+//     return str.split('').reverse().join('')
+// }
 
 // # 2
 // const reverse = (str) => {
@@ -31,15 +31,15 @@ const reverse = (str) => {
 // reverse('abcd')
 
 
-// # 4
-// const reverse = (str) => {
-//     const Length = str.length;
-//     let result = '';
-//     for(let i=Length-1; i>=0; i--){
-//         result += str[i]
-//     }
-//     return result;
-// }
+// 
+const reverse = (str) => {
+    const Length = str.length;
+    let result = '';
+    for(let i=Length-1; i>=0; i--){
+        result += str[i]
+    }
+    return result;
+}
 
 
 

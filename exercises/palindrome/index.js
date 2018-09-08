@@ -14,21 +14,21 @@
 // }
 
 // # 2
-const palindrome = (str) => {
-    return str.split('').every((item, index, array) => {
-        return item === str[str.length -index -1]
-    })
-}
-
 // const palindrome = (str) => {
-// 	const L = str.length;
-// 	let result = true;
-// 	for(var i=0; i<L/2; i++){
-// 		if(str[i] !== str[L-i-1]){
-// 			result = false;
-// 			break; 
-// 		}		
-// 	}
-// 	return result;
+//     return str.split('').every((item, index, array) => {
+//         return item === str[str.length -index -1]
+//     })
 // }
+
+const palindrome = (str) => {
+	const L = str.length;
+	let result = true;
+	for(var i=0; i<Math.floor(L/2); i++){
+		if(str[i] !== str[L-i-1]){
+			result = false;
+			break; 
+		}		
+	}
+	return result;
+}
 module.exports = palindrome;

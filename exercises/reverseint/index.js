@@ -21,11 +21,10 @@ const reverseInt = (n)=> {
 	p = Math.abs(n);
 
     const getDigit = (p) => {
+        result = result*10 + (p%10);
         if(p<10) {
-            result = result*10 + (p%10);
             return;
         }
-        result = result*10 + (p%10);
         return getDigit(parseInt(p/10));
     }
     getDigit(p);
@@ -38,8 +37,8 @@ const reverseInt = (n)=> {
 //     p = Math.abs(n)
 //     const reversedP = Number(p.toString().split('').reverse().join(''))
     
-//     // return sign? reversedP : -1 * reversedP
-//     return sign? reversedP : 0-reversedP
+//     return sign? reversedP : -1 * reversedP
+//     // return sign? reversedP : 0-reversedP
 // }
 
 
