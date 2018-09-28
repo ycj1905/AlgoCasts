@@ -10,10 +10,10 @@
 // *Do not* access the array inside of any queue, only
 // use the 'add', 'remove', and 'peek' functions.
 // --- Example
-//    const queueOne = new Queue();
+//    const queueOne = new Queue(); 1 2
 //    queueOne.add(1);
 //    queueOne.add(2);
-//    const queueTwo = new Queue();
+//    const queueTwo = new Queue(); Hi There
 //    queueTwo.add('Hi');
 //    queueTwo.add('There');
 //    const q = weave(queueOne, queueTwo);
