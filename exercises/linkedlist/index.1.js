@@ -26,21 +26,36 @@ class LinkedList {
         }
         return count
     }
+    // size(){
+    //     if(!this.head) return 0
+    //     let count = 1
+    //     let node = this.head
+    //     while(node.next){
+    //         count++
+    //         node = node.next
+    //     }
+    //     return count
+    // }
     getFirst(){
-        // return this.head
-        return this.getAt(0)
+        return this.head
     }
     getLast(){
-        // if(!this.head) return null
-        // let node = this.head
-        // while(node){
-        //     if(!node.next){
-        //         return node;
-        //     }
-        //     node = node.next
-        // }
-        return this.getAt(this.size()-1)
+        if(!this.head) return null
+        let node = this.head
+        while(node){
+            if(!node.next){
+                return node;
+            }
+            node = node.next
+        }
     }
+    // getLast(){
+    //     let node = this.head
+    //     while(!!node.next){
+    //         node = node.next
+    //     }
+    //     return node
+    // }
     clear(){
         this.head = null
     }
@@ -49,36 +64,65 @@ class LinkedList {
         this.head = this.head.next
     }
     // 83
+    // node = null => error
+    // removeLast(){
+    //     const size = this.size()
+    //     if(size === 0) return
+    //     if(size === 1) return this.head = null
+
+    //     let node = this.head
+    //     while(!!node.next){
+    //         node = node.next
+    //         console.log(node)
+    //     }
+    //     node = null
+    // }
+    // removeLast(){
+    //     const size = this.size()
+    //     if(size === 0) return
+    //     if(size === 1) return this.head = null
+
+    //     let node = this.head
+    //     let previos = this.head
+    //     while(!!node.next){
+    //         previos = node
+    //         node = node.next
+    //     }
+    //     previos.next = null
+    // }
     removeLast(){
-        // length 0
-        if(!this.head) return
-        // length 1
-        if(!this.head.next) {
+        if(!this.head){
+            return;
+        }
+        if(!this.head.next){
             this.head = null
             return
         }
-
-        let previous = this.head
+        let previos = this.head
         let node = this.head.next
         while(node.next){
-            previous = node
+            previos = node
             node = node.next
         }
-        previous.next = null
+        previos.next = null
     }
     insertLast(data){
         const last = this.getLast()
         if(last){
             last.next = new Node(data)
-        }else {
+        }else{
             this.head = new Node(data)
         }
     }
     getAt(index){
+        // if(!this.head) return null
         let node = this.head
+        // for(let i=0; i<index; i++){
+        //     node = node.next
+        // }
         let count = 0
         while(node){
-            if(count === index){
+            if(index === count){
                 return node
             }
             count++
@@ -87,14 +131,11 @@ class LinkedList {
         return null
     }
     removeAt(index){
-        // length 1
         if(!this.head) return
-        // length 2
         if(index === 0) {
             this.head = this.head.next
             return
         }
-
         const previous = this.getAt(index-1)
         if(!previous || !previous.next ) return
         previous.next = previous.next.next
@@ -112,35 +153,6 @@ class LinkedList {
         const node = new Node(data, previous.next)
         previous.next = node
     }
-    // forEach(callback){
-    //     if(!this.head) return
-
-    //     let node = this.head
-    //     let result = new LinkedList()
-    //     result.insertLast(new Node(callback(node.data)))
-    //     while(node.next){
-    //         node = node.next
-    //         result.insertLast(node.data)
-    //     }
-    //     return result
-    // }
-    // forEach(fn){
-    //     let node = this.node
-    //     let count = 0
-    //     while(node){
-    //         fn(node, count)
-    //         node = node.next
-    //         count++
-    //     }
-    // }
-
-    // *[Symbol.iterator](){
-    //     let node = this.head
-    //     while(node){
-    //         yield node
-    //         node = node.next
-    //     }
-    // }
 }
 
 module.exports = { Node, LinkedList };

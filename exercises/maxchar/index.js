@@ -20,7 +20,7 @@
 //             maxChar = char;
 //         }
 //     }
-//     return maxChar;
+//     return maxChar;cd
 // }
 const maxChar = (str) => {
     const charMap = {}

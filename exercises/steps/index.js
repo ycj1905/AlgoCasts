@@ -16,7 +16,20 @@
 //       '##  '
 //       '### '
 //       '####'
-
-function steps(n) {}
+const printStep = (s, total) => {
+    let steps = '';
+    for(let i=0; i<s; i++){
+        steps += '#'
+    }
+    for(let i=0; i<total-s; i++){
+        steps += ' '
+    }
+    console.log(steps)
+}
+const steps = (total) => {
+    for(let i=1; i<total+1; i++){
+        printStep(i, total)
+    }
+}
 
 module.exports = steps;
